@@ -1,0 +1,20 @@
+RESET CONFIG:
+write erase
+reload
+
+After reload:
+Would you like to enter the initial configuration dialog? [yes/no]: no
+
+BOOTLOADER MODE:
+switch:
+
+CMDs:
+dir flash:
+boot
+reset
+help
+flash_init
+
+Notes:
+switch: != normal IOS
+SW1> / SW1# = normal IOS

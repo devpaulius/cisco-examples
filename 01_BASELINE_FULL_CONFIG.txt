@@ -1,0 +1,107 @@
+enable
+configure terminal
+
+hostname SW1
+no ip domain-lookup
+no service config
+service password-encryption
+enable secret class
+
+banner login # Welcome #
+banner motd # Unauthorized access prohibited #
+
+no vstack
+
+ip domain-name lab.local
+username admin privilege 15 secret class123
+crypto key generate rsa modulus 1024
+ip ssh version 2
+
+vlan 10
+ name VLAN_RT_1
+exit
+
+vlan 50
+ name VLAN_MGMT_1
+exit
+
+vlan 350
+ name VLAN_VPS_1
+exit
+
+interface FastEthernet1/0/1
+ description ISP
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ no shutdown
+exit
+
+interface FastEthernet1/0/2
+ description TP_LINK_ROUTER
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ no shutdown
+exit
+
+interface FastEthernet1/0/3
+ description PROXMOX
+ switchport mode access
+ switchport access vlan 350
+ spanning-tree portfast
+ no shutdown
+exit
+
+interface FastEthernet1/0/4
+ description ADMIN_PC
+ switchport mode access
+ switchport access vlan 50
+ spanning-tree portfast
+ no shutdown
+exit
+
+interface range FastEthernet1/0/5 - 48
+ description UNUSED_PORT
+ switchport mode access
+ shutdown
+exit
+
+interface range GigabitEthernet1/0/1 - 4
+ description UNUSED_GIG_PORT
+ switchport mode access
+ shutdown
+exit
+
+interface Vlan1
+ no ip address
+ shutdown
+exit
+
+interface Vlan50
+ ip address 192.168.50.2 255.255.255.0
+ no shutdown
+exit
+
+interface Vlan350
+ no ip address
+ shutdown
+exit
+
+ip default-gateway 192.168.50.1
+
+line console 0
+ password cisco
+ login
+ logging synchronous
+ exec-timeout 10 0
+exit
+
+line vty 0 15
+ login local
+ transport input ssh
+ exec-timeout 10 0
+exit
+
+end
+write memory

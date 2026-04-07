@@ -1,0 +1,43 @@
+1. VLAN isnt wrkng:
+show vlan brief
+
+2. MGMT IP isnt wrkng:
+show ip interface brief
+
+3. port isnt there:
+show interfaces FastEthernet1/0/1 switchport
+show interfaces FastEthernet1/0/2 switchport
+show interfaces FastEthernet1/0/3 switchport
+show interfaces FastEthernet1/0/4 switchport
+
+4. MAC addrs i cant see:
+show mac address-table
+
+5. SSH isnt wkrng:
+show ssh
+show running-config | include ssh
+show running-config | include username
+show running-config | section line vty
+
+6. bad TFTP errrs:
+configure terminal
+no service config
+end
+write memory
+
+7. SVI down/down:
+Patikrink ar yra aktyvus portas toje VLAN.
+Pvz VLAN50 turi tureti aktyvu Fa1/0/4.
+
+8. port shutdown:
+show interfaces status
+configure terminal
+interface fa1/0/x
+ no shutdown
+end
+
+9. Trunk check:
+show interfaces trunk
+
+10. save after changes:
+write memory

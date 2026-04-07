@@ -1,0 +1,75 @@
+TASK 1
+------
+From zero to create:
+- hostname SW1
+- no ip domain-lookup
+- enable secret class
+- console password cisco
+- write memory
+
+TASK 2
+------
+Create VLAN:
+- 10
+- 50
+- 350
+
+TASK 3
+------
+Assign ports:
+- Fa1/0/1 -> VLAN10
+- Fa1/0/2 -> VLAN10
+- Fa1/0/3 -> VLAN350
+- Fa1/0/4 -> VLAN50
+
+TASK 4
+------
+Assign management IP:
+- interface vlan 50
+- 192.168.50.2/24
+- ip default-gateway 192.168.50.1
+
+TASK 5
+------
+COnfigure SSH:
+- ip domain-name lab.local
+- username admin privilege 15 secret class123
+- crypto key generate rsa modulus 1024
+- ip ssh version 2
+- line vty 0 15
+- login local
+- transport input ssh
+
+TASK 6
+------
+turn off unused ports:
+- fa1/0/5-48
+- gi1/0/1-4
+
+TASK 7
+------
+Check:
+show vlan brief
+show ip interface brief
+show interfaces status
+show ssh
+show running-config
+
+TASK 8
+------
+Do a mistake and fix it.:
+- Fa1/0/3 idek i neteisinga VLAN
+- pamirsk no shutdown
+- pamirsk ip default-gateway
+- pamirsk line vty login local
+
+TASK 9
+------
+From 5-10 min reset all base cfg from mem.
+
+TASK 10
+-------
+Post it:
+- baseline config
+- show commands
+- troubleshooting checklist

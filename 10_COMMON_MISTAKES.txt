@@ -1,0 +1,21 @@
+BAD:
+ls
+exity
+en secret class
+service password-encrpy
+ip add
+spnning-tree
+clear     <- in sw does nt exists a clear cmd.
+
+Good:
+dir
+exit
+enable secret class
+service password-encryption
+ip address 192.168.50.2 255.255.255.0
+spanning-tree portfast
+show ?    arba clear ?
+
+Reminder:
+switch: prompt = bootloader
+SW1# prompt = normal IOS

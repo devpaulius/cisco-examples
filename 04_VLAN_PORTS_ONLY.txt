@@ -1,0 +1,55 @@
+configure terminal
+
+vlan 10
+ name VLAN_RT_1
+exit
+
+vlan 50
+ name VLAN_MGMT_1
+exit
+
+vlan 350
+ name VLAN_VPS_1
+exit
+
+interface FastEthernet1/0/1
+ description ISP
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ no shutdown
+exit
+
+interface FastEthernet1/0/2
+ description TP_LINK_ROUTER
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ no shutdown
+exit
+
+interface FastEthernet1/0/3
+ description PROXMOX
+ switchport mode access
+ switchport access vlan 350
+ spanning-tree portfast
+ no shutdown
+exit
+
+interface FastEthernet1/0/4
+ description ADMIN_PC
+ switchport mode access
+ switchport access vlan 50
+ spanning-tree portfast
+ no shutdown
+exit
+
+interface vlan 50
+ ip address 192.168.50.2 255.255.255.0
+ no shutdown
+exit
+
+ip default-gateway 192.168.50.1
+
+end
+write memory

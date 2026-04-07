@@ -1,0 +1,53 @@
+SWITCH
+------
+VLAN 10 = VLAN_RT_1
+VLAN 50 = VLAN_MGMT_1
+VLAN 350 = VLAN_VPS_1
+
+SWITCH IP
+---------
+VLAN50 SVI = 192.168.50.2/24
+Default gateway = 192.168.50.1
+
+ADMIN PC
+--------
+Port: Fa1/0/4
+VLAN: 50
+IP: 192.168.50.10/24
+GW: 192.168.50.1
+
+PROXMOX
+-------
+Port: Fa1/0/3
+VLAN: 350
+IP example: 192.168.350.10/24
+GW example: 192.168.350.1
+
+PASTABA
+-------
+Not every router is working nice with 192.168.350.0/24.
+If tp-link is unavaialbe on this subnet / cause problems use:
+192.168.35.0/24 vietoj 192.168.350.0/24
+
+Then:
+VLAN350 gateway = 192.168.35.1
+Proxmox = 192.168.35.10
+
+ROUTER
+------
+If router is simple home lab, more often easily method is:
+- VLAN10 like separate segment
+- VLAN50 management
+- VLAN350 server segment
+- or do trunk but if router supports 802.1Q VLAN normally
+
+For exam
+---------
+Import to know switch syntax and logic:
+- access port
+- trunk port
+- vlan
+- svi
+- ip default-gateway
+- ssh
+- shutdown unused ports

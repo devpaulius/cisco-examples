@@ -1,0 +1,17 @@
+show running-config
+show startup-config
+show vlan brief
+show ip interface brief
+show interfaces status
+show interfaces switchport
+show interfaces trunk
+show mac address-table
+show spanning-tree
+show ssh
+show version
+show users
+show line
+show interfaces FastEthernet1/0/1 switchport
+show interfaces FastEthernet1/0/2 switchport
+show interfaces FastEthernet1/0/3 switchport
+show interfaces FastEthernet1/0/4 switchport

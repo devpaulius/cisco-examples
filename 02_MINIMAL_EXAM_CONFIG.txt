@@ -1,0 +1,48 @@
+enable
+configure terminal
+
+hostname SW1
+no ip domain-lookup
+no service config
+service password-encryption
+enable secret class
+
+vlan 10
+ name VLAN_RT_1
+vlan 50
+ name VLAN_MGMT_1
+vlan 350
+ name VLAN_VPS_1
+
+interface fa1/0/1
+ switchport mode access
+ switchport access vlan 10
+ no shutdown
+
+interface fa1/0/2
+ switchport mode access
+ switchport access vlan 10
+ no shutdown
+
+interface fa1/0/3
+ switchport mode access
+ switchport access vlan 350
+ no shutdown
+
+interface fa1/0/4
+ switchport mode access
+ switchport access vlan 50
+ no shutdown
+
+interface vlan 50
+ ip address 192.168.50.2 255.255.255.0
+ no shutdown
+
+ip default-gateway 192.168.50.1
+
+line console 0
+ password cisco
+ login
+
+end
+write memory

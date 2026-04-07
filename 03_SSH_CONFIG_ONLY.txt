@@ -1,0 +1,18 @@
+configure terminal
+
+ip domain-name lab.local
+username admin privilege 15 secret class123
+crypto key generate rsa modulus 1024
+ip ssh version 2
+
+line vty 0 15
+ login local
+ transport input ssh
+ exec-timeout 10 0
+exit
+
+end
+write memory
+
+TEST:
+ssh -l admin 192.168.50.2
