@@ -1,0 +1,28 @@
+hostname SW1
+!
+vlan 10
+ name USERS
+!
+vlan 20
+ name VOICE
+!
+interface FastEthernet0/1
+ description PC in VLAN 10
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/2
+ description PC in VLAN 20
+ switchport mode access
+ switchport access vlan 20
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet0/1
+ description Trunk to SW2
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20
+!
+end

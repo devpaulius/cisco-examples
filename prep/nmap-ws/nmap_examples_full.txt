@@ -1,0 +1,174 @@
+NMAP QUICK REFERENCE
+
+IMPORTANT:
+Use only on systems you own or are explicitly allowed to test.
+
+--------------------------------------------------
+1. BASIC TARGET SCANS
+--------------------------------------------------
+nmap 192.168.1.100
+nmap 192.168.1.0/24
+nmap 192.168.1.100 192.168.1.101
+nmap scanme.nmap.org
+
+--------------------------------------------------
+2. HOST DISCOVERY
+--------------------------------------------------
+nmap -sn 192.168.1.0/24
+nmap -sn 10.0.0.0/24
+nmap -Pn 192.168.1.100
+nmap -PR 192.168.1.0/24
+
+Notes:
+-sn = ping scan only, no port scan
+-Pn = treat host as up
+-PR = ARP discovery on local network
+
+--------------------------------------------------
+3. PORT SCANNING
+--------------------------------------------------
+nmap 192.168.1.100
+nmap -p 22 192.168.1.100
+nmap -p 22,80,443 192.168.1.100
+nmap -p 1-1024 192.168.1.100
+nmap -p- 192.168.1.100
+nmap --top-ports 20 192.168.1.100
+nmap --top-ports 100 192.168.1.100
+nmap -F 192.168.1.100
+
+Notes:
+-p- = all ports
+-F = fast mode
+--top-ports = most common ports
+
+--------------------------------------------------
+4. SERVICE / VERSION DETECTION
+--------------------------------------------------
+nmap -sV 192.168.1.100
+nmap -sV --version-light 192.168.1.100
+nmap -sV --version-all 192.168.1.100
+nmap -sV -p 21,22,23,53,80,443,3389 192.168.1.100
+
+--------------------------------------------------
+5. OS DETECTION
+--------------------------------------------------
+nmap -O 192.168.1.100
+nmap -A 192.168.1.100
+
+Notes:
+-O = OS detection
+-A = aggressive scan (OS + version + default scripts + traceroute)
+
+--------------------------------------------------
+6. TCP / UDP MODES
+--------------------------------------------------
+nmap -sS 192.168.1.100
+nmap -sT 192.168.1.100
+nmap -sU 192.168.1.100
+nmap -sS -sV 192.168.1.100
+nmap -sU -p 53,67,68,123,161 192.168.1.100
+
+Notes:
+-sS = SYN scan
+-sT = TCP connect scan
+-sU = UDP scan
+
+--------------------------------------------------
+7. TIMING
+--------------------------------------------------
+nmap -T3 192.168.1.100
+nmap -T4 192.168.1.100
+nmap -T5 192.168.1.100
+
+Notes:
+-T3 = normal
+-T4 = faster, common in labs
+-T5 = very aggressive
+
+--------------------------------------------------
+8. OUTPUT
+--------------------------------------------------
+nmap -oN scan.txt 192.168.1.100
+nmap -oX scan.xml 192.168.1.100
+nmap -oG scan.grep 192.168.1.100
+nmap -oA fullscan 192.168.1.100
+
+Notes:
+-oA writes normal, XML, and grepable outputs together
+
+--------------------------------------------------
+9. COMMON PRACTICAL EXAMPLES
+--------------------------------------------------
+nmap -A 192.168.1.100
+nmap -sV -O 192.168.1.100
+nmap -Pn -sV 192.168.1.100
+nmap -sn 192.168.1.0/24
+nmap -p 21,22,23,53,80,443,3389 -sV 192.168.1.100
+nmap -sU -p 53,161 192.168.1.100
+nmap --top-ports 100 -sV 192.168.1.100
+nmap -oA exam_scan 192.168.1.100
+
+--------------------------------------------------
+10. PORT STATES
+--------------------------------------------------
+open
+closed
+filtered
+unfiltered
+open|filtered
+closed|filtered
+
+--------------------------------------------------
+11. COMMON PORTS
+--------------------------------------------------
+20 FTP-DATA
+21 FTP
+22 SSH
+23 TELNET
+25 SMTP
+53 DNS
+67 DHCP SERVER
+68 DHCP CLIENT
+69 TFTP
+80 HTTP
+110 POP3
+123 NTP
+135 MSRPC
+137 NETBIOS-NS
+138 NETBIOS-DGM
+139 NETBIOS-SSN
+143 IMAP
+161 SNMP
+389 LDAP
+443 HTTPS
+445 SMB
+993 IMAPS
+995 POP3S
+1433 MSSQL
+3306 MYSQL
+3389 RDP
+5432 POSTGRESQL
+5900 VNC
+8080 HTTP-ALT
+
+--------------------------------------------------
+12. SIMPLE EXAM WORKFLOW
+--------------------------------------------------
+1. Discover host:
+   nmap -sn 192.168.1.0/24
+
+2. Scan target:
+   nmap -sV -O 192.168.1.100
+
+3. If host blocks ping:
+   nmap -Pn -sV 192.168.1.100
+
+4. Save output:
+   nmap -oA exam_scan 192.168.1.100
+
+5. Copy into report:
+   - target IP
+   - MAC address
+   - OS
+   - open ports
+   - service versions

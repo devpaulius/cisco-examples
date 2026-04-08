@@ -1,0 +1,7 @@
+Suggested Windows VM settings:
+- 2 CPU cores
+- 2048 MB RAM or more
+- 20-60 GB disk
+- Network adapter: Bridged
+- Install browser, archive tool, Zenmap, Wireshark
+- VM name: VIRT-X

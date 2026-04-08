@@ -1,0 +1,3 @@
+Create users:
+- User / os  -> administrator
+- User2 / os2 -> standard user

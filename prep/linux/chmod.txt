@@ -1,0 +1,19 @@
+Permissions:
+r = 4
+w = 2
+x = 1
+
+0 = ---
+1 = --x
+2 = -w-
+3 = -wx
+4 = r--
+5 = r-x
+6 = rw-
+7 = rwx
+
+Examples:
+chmod 755 script.sh
+chmod 644 file.txt
+chmod 700 private_dir
+chmod 600 id_rsa

@@ -1,0 +1,8 @@
+ip addr
+ip route
+ping 8.8.8.8
+traceroute 8.8.8.8
+ss -tulpn
+netstat -tulpn
+hostname -I
+nmcli device status

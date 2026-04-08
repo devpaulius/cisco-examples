@@ -1,0 +1,5 @@
+show access-lists
+show ip interface
+show ip nat translations
+show ip nat statistics
+show running-config | include access-list|ip nat

@@ -1,0 +1,10 @@
+Create this Packet Tracer topology:
+- 2 routers
+- 2 switches
+- VLAN 10 and VLAN 20
+- Router-on-a-stick
+- OSPF between routers
+- ACL rule
+- NAT/PAT
+- DHCP
+- SSH

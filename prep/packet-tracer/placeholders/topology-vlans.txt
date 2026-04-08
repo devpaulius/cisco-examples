@@ -1,0 +1,7 @@
+Create this Packet Tracer topology:
+- 2 switches
+- VLAN 10 USERS
+- VLAN 20 VOICE
+- 2 PCs in VLAN 10
+- 2 PCs in VLAN 20
+- 1 trunk link between switches

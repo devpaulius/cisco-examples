@@ -1,0 +1,6 @@
+SSH basics:
+- Set hostname
+- Set ip domain-name
+- Create local username
+- Generate RSA keys
+- Configure VTY lines for login local and transport input ssh

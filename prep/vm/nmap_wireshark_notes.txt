@@ -1,0 +1,18 @@
+Nmap examples:
+nmap -A 192.168.1.100
+nmap -sV -O 192.168.1.100
+nmap -Pn -sV 192.168.1.100
+
+Common ports:
+21 FTP
+22 SSH
+23 TELNET
+53 DNS
+80 HTTP
+443 HTTPS
+3389 RDP
+
+Wireshark tips:
+- filter by ip.addr == 192.168.1.100
+- filter by tcp.port == 80
+- follow TCP stream

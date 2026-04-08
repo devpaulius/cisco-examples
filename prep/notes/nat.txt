@@ -1,0 +1,4 @@
+NAT/PAT basics:
+- Mark inside and outside interfaces
+- Create ACL for inside subnet
+- Use overload for PAT

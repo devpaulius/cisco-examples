@@ -1,0 +1,5 @@
+OSPF basics:
+- Dynamic routing protocol
+- Uses areas
+- Most basic labs use area 0
+- Verify with: show ip ospf neighbor

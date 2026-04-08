@@ -1,0 +1,12 @@
+Create a short Cisco/Linux cheat sheet for this topic:
+
+[TOPIC]
+
+Format:
+- what it is
+- 3-8 important commands
+- 3 troubleshooting/show commands
+- 1 mini config example
+- common mistakes
+
+Keep it short so I can paste it into a TXT file.

@@ -1,0 +1,5 @@
+show ip dhcp binding
+show ip dhcp pool
+show ip ssh
+show users
+show running-config | section line vty

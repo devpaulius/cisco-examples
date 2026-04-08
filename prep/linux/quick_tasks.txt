@@ -1,0 +1,7 @@
+Quick Linux tasks:
+- Check IP address: ip addr
+- Check routes: ip route
+- Check open ports: ss -tulpn
+- Restart SSH: systemctl restart ssh
+- Change permissions: chmod 755 script.sh
+- Find config line: grep -n "PermitRootLogin" /etc/ssh/sshd_config

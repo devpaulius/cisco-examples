@@ -1,0 +1,13 @@
+hostname R1
+ip domain-name lab.local
+username admin privilege 15 secret Cisco123!
+crypto key generate rsa modulus 1024
+ip ssh version 2
+!
+line vty 0 4
+ login local
+ transport input ssh
+!
+service password-encryption
+!
+end

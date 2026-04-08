@@ -1,0 +1,27 @@
+OSPF QUICK NOTES
+
+Ką daro:
+- Dinaminis routing protokolas
+- Naudoja areas
+- Dažniausiai basic reikia area 0
+
+Basic:
+router ospf 1
+ network 10.0.0.0 0.0.0.255 area 0
+
+Naudingos komandos:
+show ip ospf neighbor
+show ip ospf interface brief
+show ip route ospf
+show ip protocols
+
+Troubleshooting:
+- ar interface up/up?
+- ar tas pats area?
+- ar tas pats subnetas?
+- ar nėra passive-interface?
+- ar wildcard teisingas?
+
+Tavo papildymai:
+- 
+- 

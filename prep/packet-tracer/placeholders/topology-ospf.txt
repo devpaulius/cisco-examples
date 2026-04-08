@@ -1,0 +1,5 @@
+Create this Packet Tracer topology:
+- R1 <-> R2
+- One LAN behind R1
+- One LAN behind R2
+- OSPF area 0 between routers

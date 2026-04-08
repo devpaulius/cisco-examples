@@ -1,0 +1,5 @@
+show ip ospf neighbor
+show ip ospf interface brief
+show ip route ospf
+show ip protocols
+show running-config | section router ospf

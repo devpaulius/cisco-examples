@@ -1,0 +1,179 @@
+WIRESHARK DISPLAY FILTER QUICK REFERENCE
+
+--------------------------------------------------
+1. BASIC HOST FILTERS
+--------------------------------------------------
+ip.addr == 192.168.1.100
+ip.src == 192.168.1.100
+ip.dst == 192.168.1.100
+eth.addr == 00:11:22:33:44:55
+eth.src == 00:11:22:33:44:55
+eth.dst == 00:11:22:33:44:55
+
+--------------------------------------------------
+2. PROTOCOL FILTERS
+--------------------------------------------------
+arp
+icmp
+tcp
+udp
+dns
+http
+https
+tls
+ftp
+ssh
+telnet
+dhcp
+bootp
+ntp
+rdp
+smtp
+imap
+pop
+snmp
+
+Notes:
+DHCP often appears as bootp in Wireshark.
+
+--------------------------------------------------
+3. PORT FILTERS
+--------------------------------------------------
+tcp.port == 80
+tcp.srcport == 80
+tcp.dstport == 80
+udp.port == 53
+udp.port == 67
+udp.port == 68
+tcp.port == 443
+tcp.port == 22
+tcp.port == 23
+tcp.port == 3389
+
+--------------------------------------------------
+4. COMMON COMBINATIONS
+--------------------------------------------------
+ip.addr == 192.168.1.100 && tcp
+ip.addr == 192.168.1.100 && icmp
+ip.addr == 192.168.1.100 && dns
+tcp.port == 80 && ip.addr == 192.168.1.100
+tcp.port == 443 && ip.addr == 192.168.1.100
+udp.port == 53 && ip.addr == 192.168.1.100
+
+--------------------------------------------------
+5. HTTP / WEB TRAFFIC
+--------------------------------------------------
+http
+http.request
+http.response
+http.host
+http.request.method == "GET"
+http.request.method == "POST"
+tcp.port == 80
+tcp.stream eq 0
+
+--------------------------------------------------
+6. DNS
+--------------------------------------------------
+dns
+dns.qry.name
+dns.flags.response == 0
+dns.flags.response == 1
+udp.port == 53
+
+--------------------------------------------------
+7. DHCP
+--------------------------------------------------
+bootp
+udp.port == 67 || udp.port == 68
+bootp.option.hostname
+bootp.type == 1
+bootp.type == 2
+
+--------------------------------------------------
+8. TCP TROUBLESHOOTING
+--------------------------------------------------
+tcp.analysis.retransmission
+tcp.analysis.fast_retransmission
+tcp.analysis.lost_segment
+tcp.analysis.out_of_order
+tcp.flags.syn == 1
+tcp.flags.fin == 1
+tcp.flags.reset == 1
+tcp.flags.ack == 1
+
+--------------------------------------------------
+9. ICMP / PING
+--------------------------------------------------
+icmp
+icmp.type == 8
+icmp.type == 0
+
+Notes:
+type 8 = echo request
+type 0 = echo reply
+
+--------------------------------------------------
+10. ARP
+--------------------------------------------------
+arp
+arp.opcode == 1
+arp.opcode == 2
+
+Notes:
+1 = request
+2 = reply
+
+--------------------------------------------------
+11. TLS / HTTPS
+--------------------------------------------------
+tls
+tcp.port == 443
+tls.handshake
+tls.handshake.type == 1
+
+--------------------------------------------------
+12. LENGTH / SIZE / CONVERSATIONS
+--------------------------------------------------
+frame.len > 1000
+frame.number == 10
+tcp.stream eq 1
+udp.stream eq 0
+
+--------------------------------------------------
+13. ERROR / RESET / DROP HINTS
+--------------------------------------------------
+tcp.flags.reset == 1
+icmp.type == 3
+icmp.type == 11
+
+Notes:
+type 3 = destination unreachable
+type 11 = time exceeded
+
+--------------------------------------------------
+14. USEFUL MENU ACTIONS
+--------------------------------------------------
+- Follow TCP Stream
+- Follow UDP Stream
+- Conversations
+- Endpoints
+- Protocol Hierarchy
+- Statistics > IO Graph
+- Apply as Filter
+- Prepare as Filter
+
+--------------------------------------------------
+15. COMMON LAB FILTERS
+--------------------------------------------------
+icmp
+arp
+dns
+tcp.port == 80
+tcp.port == 443
+tcp.port == 22
+udp.port == 53
+ip.addr == 192.168.1.100
+ip.src == 192.168.1.100
+ip.dst == 192.168.1.100
+tcp.analysis.retransmission

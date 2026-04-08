@@ -1,0 +1,4 @@
+ACL basics:
+- Standard ACL filters by source IP
+- Extended ACL filters by source, destination, protocol, port
+- There is an implicit deny at the end

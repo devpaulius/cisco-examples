@@ -1,0 +1,31 @@
+LINUX QUICK NOTES
+
+IP:
+ip addr
+ip route
+
+Services:
+systemctl status ssh
+systemctl restart ssh
+
+Ports:
+ss -tulpn
+
+Permissions:
+chmod 755 script.sh
+chmod 644 file.txt
+
+Users:
+id
+whoami
+sudo -l
+
+Files:
+ls -la
+cat file.txt
+nano file.txt
+grep ssh /etc/ssh/sshd_config
+
+Tavo papildymai:
+- 
+- 

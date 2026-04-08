@@ -1,0 +1,12 @@
+RDP setup checklist:
+1. Enable Remote Desktop
+2. Allow remote connections
+3. Add required users to Remote Desktop Users
+4. Allow RDP through firewall
+5. Check IP with ipconfig
+6. Test with mstsc from another machine
+
+Useful commands:
+ipconfig
+net user
+SystemPropertiesRemote

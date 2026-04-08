@@ -1,0 +1,5 @@
+VLAN basics:
+- Access port = one VLAN
+- Trunk port = multiple VLANs
+- Use switchport access vlan X on access ports
+- Use switchport mode trunk on trunk ports

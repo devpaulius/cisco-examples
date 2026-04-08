@@ -1,0 +1,10 @@
+Troubleshooting checklist:
+- Interface up/up?
+- Correct IP and mask?
+- Correct default gateway?
+- VLAN assigned correctly?
+- Trunk allowed VLANs correct?
+- OSPF neighbor formed?
+- ACL blocking traffic?
+- NAT inside/outside applied?
+- DHCP pool correct?

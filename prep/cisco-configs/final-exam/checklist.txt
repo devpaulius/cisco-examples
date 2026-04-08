@@ -1,0 +1,10 @@
+Final Packet Tracer checklist:
+- VLAN 10 works
+- VLAN 20 works
+- Router-on-a-stick works
+- OSPF adjacency is FULL
+- R1 learns 192.168.30.0/24
+- R2 learns VLAN 10 and VLAN 20 routes
+- ACL blocks VLAN 20 to 192.168.30.0/24
+- DHCP hands out addresses
+- SSH login works

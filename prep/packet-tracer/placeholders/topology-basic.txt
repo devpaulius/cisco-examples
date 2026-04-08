@@ -1,0 +1,8 @@
+Create this Packet Tracer topology:
+- 1 router
+- 1 switch
+- 2 PCs
+
+Goal:
+- Static IP addressing
+- End-to-end ping

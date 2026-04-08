@@ -1,0 +1,61 @@
+hostname R1
+no ip domain-lookup
+ip domain-name lab.local
+username admin privilege 15 secret Cisco123!
+crypto key generate rsa modulus 1024
+ip ssh version 2
+!
+ip dhcp excluded-address 192.168.10.1 192.168.10.10
+ip dhcp excluded-address 192.168.20.1 192.168.20.10
+!
+ip dhcp pool VLAN10
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+ dns-server 8.8.8.8
+!
+ip dhcp pool VLAN20
+ network 192.168.20.0 255.255.255.0
+ default-router 192.168.20.1
+ dns-server 8.8.8.8
+!
+access-list 1 permit 192.168.10.0 0.0.0.255
+access-list 1 permit 192.168.20.0 0.0.0.255
+!
+ip access-list extended BLOCK_VLAN20_TO_R2LAN
+ deny ip 192.168.20.0 0.0.0.255 192.168.30.0 0.0.0.255
+ permit ip any any
+!
+interface GigabitEthernet0/0
+ no shutdown
+!
+interface GigabitEthernet0/0.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.1 255.255.255.0
+ ip nat inside
+!
+interface GigabitEthernet0/0.20
+ encapsulation dot1Q 20
+ ip address 192.168.20.1 255.255.255.0
+ ip nat inside
+ ip access-group BLOCK_VLAN20_TO_R2LAN in
+!
+interface GigabitEthernet0/1
+ description Link to R2
+ ip address 10.0.12.1 255.255.255.252
+ no shutdown
+!
+router ospf 1
+ router-id 1.1.1.1
+ network 192.168.10.0 0.0.0.255 area 0
+ network 192.168.20.0 0.0.0.255 area 0
+ network 10.0.12.0 0.0.0.3 area 0
+ passive-interface GigabitEthernet0/0.10
+ passive-interface GigabitEthernet0/0.20
+!
+line vty 0 4
+ login local
+ transport input ssh
+!
+service password-encryption
+!
+end

@@ -1,0 +1,109 @@
+========================
+CISCO / LINUX CHEAT SHEET
+========================
+
+[OSPF]
+router ospf 1
+ network 192.168.10.0 0.0.0.255 area 0
+show ip ospf neighbor
+show ip route ospf
+show ip protocols
+
+[VLAN / ACCESS]
+interface g0/1
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+
+[TRUNK]
+interface g0/2
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30
+
+[ROUTER ON A STICK]
+interface g0/0.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.1 255.255.255.0
+
+interface g0/0.20
+ encapsulation dot1Q 20
+ ip address 192.168.20.1 255.255.255.0
+
+[STANDARD ACL]
+access-list 1 permit 192.168.1.0 0.0.0.255
+
+[EXTENDED ACL]
+access-list 100 permit tcp 192.168.1.0 0.0.0.255 any eq 80
+interface g0/0
+ ip access-group 100 in
+
+[STATIC ROUTE]
+ip route 0.0.0.0 0.0.0.0 192.168.1.1
+
+[NAT / PAT]
+access-list 1 permit 192.168.1.0 0.0.0.255
+ip nat inside source list 1 interface g0/1 overload
+
+interface g0/0
+ ip nat inside
+
+interface g0/1
+ ip nat outside
+
+[DHCP]
+ip dhcp pool LAN
+ network 192.168.1.0 255.255.255.0
+ default-router 192.168.1.1
+ dns-server 8.8.8.8
+
+[SSH]
+hostname R1
+ip domain-name local
+crypto key generate rsa
+username admin secret admin123
+line vty 0 4
+ login local
+ transport input ssh
+
+[SHOW COMMANDS]
+show running-config
+show ip interface brief
+show vlan brief
+show interfaces trunk
+show ip route
+show arp
+show mac address-table
+show cdp neighbors
+show version
+
+[LINUX]
+ip addr
+ip route
+ping 8.8.8.8
+traceroute 8.8.8.8
+ss -tulpn
+systemctl status ssh
+systemctl restart ssh
+
+[CHMOD]
+r = 4
+w = 2
+x = 1
+
+755 = rwxr-xr-x
+644 = rw-r--r--
+700 = rwx------
+600 = rw-------
+
+[SUBNETS]
+255.255.255.0   = /24
+255.255.255.128 = /25
+255.255.255.192 = /26
+255.255.255.224 = /27
+255.255.255.240 = /28
+
+[TAVO PASTABOS]
+- 
+- 
+- 

@@ -1,0 +1,4 @@
+DHCP basics:
+- Exclude router / reserved addresses
+- Define pool
+- Add network, default-router, dns-server

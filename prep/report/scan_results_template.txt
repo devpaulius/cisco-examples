@@ -1,0 +1,19 @@
+Target IP:
+Target MAC:
+Target OS:
+Command used:
+
+1. Port:
+   Service:
+   Version:
+   CVE:
+
+2. Port:
+   Service:
+   Version:
+   CVE:
+
+3. Port:
+   Service:
+   Version:
+   CVE:

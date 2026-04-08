@@ -1,0 +1,18 @@
+hostname R1
+!
+ip access-list extended BLOCK_ICMP
+ deny icmp 192.168.10.0 0.0.0.255 192.168.20.0 0.0.0.255
+ permit ip any any
+!
+interface GigabitEthernet0/0
+ description LAN 10
+ ip address 192.168.10.1 255.255.255.0
+ ip access-group BLOCK_ICMP in
+ no shutdown
+!
+interface GigabitEthernet0/1
+ description WAN
+ ip address 10.0.12.1 255.255.255.252
+ no shutdown
+!
+end

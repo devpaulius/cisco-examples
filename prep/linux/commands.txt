@@ -1,0 +1,14 @@
+pwd
+ls -la
+cd
+cp
+mv
+rm
+mkdir
+cat
+less
+nano
+grep
+find
+history
+clear

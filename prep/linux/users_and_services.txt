@@ -1,0 +1,13 @@
+whoami
+id
+sudo -l
+passwd
+useradd
+usermod
+groups
+
+systemctl status ssh
+systemctl restart ssh
+systemctl enable ssh
+systemctl stop ssh
+journalctl -u ssh
